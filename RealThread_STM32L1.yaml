@@ -1,0 +1,3535 @@
+---
+vendor: RealThread
+dvendor: STMicroelectronics
+name: STM32L1
+version: 0.1.2
+yaml_version: 1
+type: Chip_Support_Packages
+family_name: STM32
+series:
+  description: |-
+    STMicroelectronics' STM32L1 series uses ultra-low-leakage process technology with a autonomous dynamic voltage scaling and 5 low-power modes offering unprecedented platform flexibility to fit any application.
+    Typical applications include Medical and handheld equipment, Application control and user interface, PC peripherals, gaming, GPS and sport equipment, Alarm systems, wired and wireless sensors, Video intercom, Utility metering
+  series_name: RealThread_STM32L1xx
+  peripheral: {}
+  sub_series:
+  - sub_series_name: STM32L100
+    chips:
+    - chip_name: STM32L100C6
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00008000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00001000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '0'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L100C6\link.lds
+          marco:
+          - STM32L100xB
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l100xb.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l100xb.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L100R8
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00010000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00002000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '0'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L100R8\link.lds
+          marco:
+          - STM32L100xB
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l100xb.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l100xb.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L100RB
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00020000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00002800'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '0'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L100RB\link.lds
+          marco:
+          - STM32L100xB
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l100xb.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l100xb.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L100RC
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00040000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00004000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L100RC\link.lds
+          marco:
+          - STM32L100xC
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l100xc.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l100xc.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    ui:
+      uart:
+        default_value: UART1
+        prompt_message_en: select one uart as console output interface
+        prompt_message_zh: 选择一个串口作为控制台信息输出接口
+      tx_pin:
+        default_value: PA9
+        prompt_message_en: 'set the tx pin name of the console device interface, the
+          value should be with a format"P+[port name][pin number]",eg. PA9,PB6 '
+        prompt_message_zh: 设置控制台设备的数据发送引脚的名称, 名称应该具有以下格式“P+[端口名称][端口编号]”, 比如：PA9,
+          PB6
+      rx_pin:
+        default_value: PA10
+        prompt_message_en: 'set the rx pin name of the console device interface, the
+          value should be with a format"P+[port name][pin number]", eg. PA10, PB7 '
+        prompt_message_zh: 设置控制台设备的数据发送引脚的名称，名称应该具有以下格式“P+[端口名称][端口编号]”, 比如：PA9, PB6
+    docs:
+    - file: Documents\CD00240193.pdf
+      title: STM32L1xx Series Reference Manual
+    svd:
+      file: debug\svd\STM32L100xx.svd
+    project_type:
+      bare_metal:
+        function_map:
+          clk_init: none
+          uart_init: none
+          putc: none
+          sysTick: none
+        marco:
+        - SOC_FAMILY_STM32
+        - SOC_SERIES_STM32L1
+        - USE_HAL_DRIVER
+        source_files:
+        - drivers\baremetal
+      rtt_nano:
+        function_map:
+          clk_init: none
+          uart_init: none
+          putc: none
+          getc: none
+          sysTick: none
+          heap_init: none
+        marco:
+        - SOC_FAMILY_STM32
+        - SOC_SERIES_STM32L1
+        - USE_HAL_DRIVER
+        source_files:
+        - drivers\nano
+      rtt:
+        function_map:
+          rt_hw_board_init;: none
+          rt_hw_serial_register: none
+          rt_hw_pin_register: none
+          heap_init: none
+        marco:
+        - SOC_FAMILY_STM32
+        - SOC_SERIES_STM32L1
+        - USE_HAL_DRIVER
+        source_files:
+        - drivers\rtt
+  - sub_series_name: STM32L151
+    chips:
+    - chip_name: STM32L151C6
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00008000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00002800'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151C6\link.lds
+          marco:
+          - STM32L151xB
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xb.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xb.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151C8
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00010000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00002800'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151C8\link.lds
+          marco:
+          - STM32L151xB
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xb.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xb.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151CB
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00020000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00004000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151CB\link.lds
+          marco:
+          - STM32L151xB
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xb.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xb.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151CC
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00040000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151CC\link.lds
+          marco:
+          - STM32L151xC
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xc.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xc.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151QC
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00040000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151QC\link.lds
+          marco:
+          - STM32L151xCA
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xca.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xca.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151QD
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00060000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x0000C000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151QD\link.lds
+          marco:
+          - STM32L151xD
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xd.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xd.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151R6
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00008000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00002800'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151R6\link.lds
+          marco:
+          - STM32L151xB
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xb.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xb.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151R8
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00010000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00002800'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151R8\link.lds
+          marco:
+          - STM32L151xB
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xb.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xb.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151RB
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00020000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00004000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151RB\link.lds
+          marco:
+          - STM32L151xB
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xb.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xb.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151RC
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00040000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151RC\link.lds
+          marco:
+          - STM32L151xC
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xc.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xc.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151RD
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00060000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x0000C000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151RD\link.lds
+          marco:
+          - STM32L151xD
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xd.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xd.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151UC
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00040000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151UC\link.lds
+          marco:
+          - STM32L151xC
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xc.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xc.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151V8
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00010000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00002800'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151V8\link.lds
+          marco:
+          - STM32L151xB
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xb.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xb.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151VB
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00020000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00004000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151VB\link.lds
+          marco:
+          - STM32L151xB
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xb.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xb.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151VC
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00040000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151VC\link.lds
+          marco:
+          - STM32L151xC
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xc.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xc.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151VD
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00060000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x0000C000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151VD\link.lds
+          marco:
+          - STM32L151xD
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xd.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xd.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151ZC
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00040000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151ZC\link.lds
+          marco:
+          - STM32L151xCA
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xca.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xca.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151ZD
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00060000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x0000C000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151ZD\link.lds
+          marco:
+          - STM32L151xD
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xd.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xd.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151QE
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00080000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00014000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151QE\link.lds
+          marco:
+          - STM32L151xE
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xe.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xe.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151RE
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00080000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00014000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151RE\link.lds
+          marco:
+          - STM32L151xE
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xe.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xe.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151VE
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00080000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00014000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151VE\link.lds
+          marco:
+          - STM32L151xE
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xe.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xe.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151ZE
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00080000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00014000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151ZE\link.lds
+          marco:
+          - STM32L151xE
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xe.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xe.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    ui:
+      uart:
+        default_value: UART1
+        prompt_message_en: select one uart as console output interface
+        prompt_message_zh: 选择一个串口作为控制台信息输出接口
+      tx_pin:
+        default_value: PA9
+        prompt_message_en: 'set the tx pin name of the console device interface, the
+          value should be with a format"P+[port name][pin number]",eg. PA9,PB6 '
+        prompt_message_zh: 设置控制台设备的数据发送引脚的名称, 名称应该具有以下格式“P+[端口名称][端口编号]”, 比如：PA9,
+          PB6
+      rx_pin:
+        default_value: PA10
+        prompt_message_en: 'set the rx pin name of the console device interface, the
+          value should be with a format"P+[port name][pin number]", eg. PA10, PB7 '
+        prompt_message_zh: 设置控制台设备的数据发送引脚的名称，名称应该具有以下格式“P+[端口名称][端口编号]”, 比如：PA9, PB6
+    docs:
+    - file: Documents\CD00240193.pdf
+      title: STM32L1xx Series Reference Manual
+    svd:
+      file: debug\svd\STM32L151xx.svd
+    project_type:
+      bare_metal:
+        function_map:
+          clk_init: none
+          uart_init: none
+          putc: none
+          sysTick: none
+        marco:
+        - SOC_FAMILY_STM32
+        - SOC_SERIES_STM32L1
+        - USE_HAL_DRIVER
+        source_files:
+        - drivers\baremetal
+      rtt_nano:
+        function_map:
+          clk_init: none
+          uart_init: none
+          putc: none
+          getc: none
+          sysTick: none
+          heap_init: none
+        marco:
+        - SOC_FAMILY_STM32
+        - SOC_SERIES_STM32L1
+        - USE_HAL_DRIVER
+        source_files:
+        - drivers\nano
+      rtt:
+        function_map:
+          rt_hw_board_init;: none
+          rt_hw_serial_register: none
+          rt_hw_pin_register: none
+          heap_init: none
+        marco:
+        - SOC_FAMILY_STM32
+        - SOC_SERIES_STM32L1
+        - USE_HAL_DRIVER
+        source_files:
+        - drivers\rtt
+  - sub_series_name: STM32L152
+    chips:
+    - chip_name: STM32L152C6
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00008000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00002800'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152C6\link.lds
+          marco:
+          - STM32L152xB
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xb.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xb.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L152C8
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00010000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00002800'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152C8\link.lds
+          marco:
+          - STM32L152xB
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xb.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xb.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L152CB
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00020000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00004000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152CB\link.lds
+          marco:
+          - STM32L152xB
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xb.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xb.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L152CC
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00040000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152CC\link.lds
+          marco:
+          - STM32L152xC
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xc.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xc.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L152QC
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00040000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152QC\link.lds
+          marco:
+          - STM32L152xCA
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xca.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xca.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L152QD
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00060000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x0000C000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152QD\link.lds
+          marco:
+          - STM32L152xD
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xd.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xd.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L152R6
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00008000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00002800'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152R6\link.lds
+          marco:
+          - STM32L152xB
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xb.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xb.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L152R8
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00010000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00002800'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152R8\link.lds
+          marco:
+          - STM32L152xB
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xb.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xb.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L152RB
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00020000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00004000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152RB\link.lds
+          marco:
+          - STM32L152xB
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xb.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xb.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L152RC
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00040000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152RC\link.lds
+          marco:
+          - STM32L152xC
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xc.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xc.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L152RD
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00060000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x0000C000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152RD\link.lds
+          marco:
+          - STM32L152xD
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xd.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xd.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L152V8
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00010000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00002800'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152V8\link.lds
+          marco:
+          - STM32L152xB
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xb.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xb.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L152VB
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00020000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00004000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152VB\link.lds
+          marco:
+          - STM32L152xB
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xb.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xb.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L152VC
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00040000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152VC\link.lds
+          marco:
+          - STM32L152xC
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xc.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xc.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L152VD
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00060000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x0000C000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152VD\link.lds
+          marco:
+          - STM32L152xD
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xd.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xd.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L152ZC
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00040000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152ZC\link.lds
+          marco:
+          - STM32L152xCA
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xca.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xca.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L152ZD
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00060000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x0000C000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152ZD\link.lds
+          marco:
+          - STM32L152xD
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xd.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xd.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L152QE
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00080000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00014000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152QE\link.lds
+          marco:
+          - STM32L152xE
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xe.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xe.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L152RE
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00080000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00014000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152RE\link.lds
+          marco:
+          - STM32L152xE
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xe.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xe.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L152VE
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00080000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00014000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152VE\link.lds
+          marco:
+          - STM32L152xE
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xe.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xe.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L152ZE
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00080000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00014000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152ZE\link.lds
+          marco:
+          - STM32L152xE
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xe.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xe.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    ui:
+      uart:
+        default_value: UART1
+        prompt_message_en: select one uart as console output interface
+        prompt_message_zh: 选择一个串口作为控制台信息输出接口
+      tx_pin:
+        default_value: PA9
+        prompt_message_en: 'set the tx pin name of the console device interface, the
+          value should be with a format"P+[port name][pin number]",eg. PA9,PB6 '
+        prompt_message_zh: 设置控制台设备的数据发送引脚的名称, 名称应该具有以下格式“P+[端口名称][端口编号]”, 比如：PA9,
+          PB6
+      rx_pin:
+        default_value: PA10
+        prompt_message_en: 'set the rx pin name of the console device interface, the
+          value should be with a format"P+[port name][pin number]", eg. PA10, PB7 '
+        prompt_message_zh: 设置控制台设备的数据发送引脚的名称，名称应该具有以下格式“P+[端口名称][端口编号]”, 比如：PA9, PB6
+    docs:
+    - file: Documents\CD00240193.pdf
+      title: STM32L1xx Series Reference Manual
+    svd:
+      file: debug\svd\STM32L152xx.svd
+    project_type:
+      bare_metal:
+        function_map:
+          clk_init: none
+          uart_init: none
+          putc: none
+          sysTick: none
+        marco:
+        - SOC_FAMILY_STM32
+        - SOC_SERIES_STM32L1
+        - USE_HAL_DRIVER
+        source_files:
+        - drivers\baremetal
+      rtt_nano:
+        function_map:
+          clk_init: none
+          uart_init: none
+          putc: none
+          getc: none
+          sysTick: none
+          heap_init: none
+        marco:
+        - SOC_FAMILY_STM32
+        - SOC_SERIES_STM32L1
+        - USE_HAL_DRIVER
+        source_files:
+        - drivers\nano
+      rtt:
+        function_map:
+          rt_hw_board_init;: none
+          rt_hw_serial_register: none
+          rt_hw_pin_register: none
+          heap_init: none
+        marco:
+        - SOC_FAMILY_STM32
+        - SOC_SERIES_STM32L1
+        - USE_HAL_DRIVER
+        source_files:
+        - drivers\rtt
+  - sub_series_name: STM32L162
+    chips:
+    - chip_name: STM32L162QD
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00060000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x0000C000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L162QD\link.lds
+          marco:
+          - STM32L162xD
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l162xd.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l162xd.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L162RC
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00040000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L162RC\link.lds
+          marco:
+          - STM32L162xC
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l162xc.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l162xc.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L162RD
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00060000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x0000C000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L162RD\link.lds
+          marco:
+          - STM32L162xD
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l162xd.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l162xd.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L162RE
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00080000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00014000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L162RE\link.lds
+          marco:
+          - STM32L162xE
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l162xe.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l162xe.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L162VE
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00080000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00014000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L162VE\link.lds
+          marco:
+          - STM32L162xE
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l162xe.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l162xe.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L162ZE
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00080000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00014000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L162ZE\link.lds
+          marco:
+          - STM32L162xE
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l162xe.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l162xe.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L162VC
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00040000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L162VC\link.lds
+          marco:
+          - STM32L162xC
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l162xc.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l162xc.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L162VD
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00060000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x0000C000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L162VD\link.lds
+          marco:
+          - STM32L162xD
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l162xd.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l162xd.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L162ZD
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00060000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x0000C000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L162ZD\link.lds
+          marco:
+          - STM32L162xD
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l162xd.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l162xd.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    ui:
+      uart:
+        default_value: UART1
+        prompt_message_en: select one uart as console output interface
+        prompt_message_zh: 选择一个串口作为控制台信息输出接口
+      tx_pin:
+        default_value: PA9
+        prompt_message_en: 'set the tx pin name of the console device interface, the
+          value should be with a format"P+[port name][pin number]",eg. PA9,PB6 '
+        prompt_message_zh: 设置控制台设备的数据发送引脚的名称, 名称应该具有以下格式“P+[端口名称][端口编号]”, 比如：PA9,
+          PB6
+      rx_pin:
+        default_value: PA10
+        prompt_message_en: 'set the rx pin name of the console device interface, the
+          value should be with a format"P+[port name][pin number]", eg. PA10, PB7 '
+        prompt_message_zh: 设置控制台设备的数据发送引脚的名称，名称应该具有以下格式“P+[端口名称][端口编号]”, 比如：PA9, PB6
+    docs:
+    - file: Documents\CD00240193.pdf
+      title: STM32L1xx Series Reference Manual
+    svd:
+      file: debug\svd\STM32L162xx.svd
+    project_type:
+      bare_metal:
+        function_map:
+          clk_init: none
+          uart_init: none
+          putc: none
+          sysTick: none
+        marco:
+        - SOC_FAMILY_STM32
+        - SOC_SERIES_STM32L1
+        - USE_HAL_DRIVER
+        source_files:
+        - drivers\baremetal
+      rtt_nano:
+        function_map:
+          clk_init: none
+          uart_init: none
+          putc: none
+          getc: none
+          sysTick: none
+          heap_init: none
+        marco:
+        - SOC_FAMILY_STM32
+        - SOC_SERIES_STM32L1
+        - USE_HAL_DRIVER
+        source_files:
+        - drivers\nano
+      rtt:
+        function_map:
+          rt_hw_board_init;: none
+          rt_hw_serial_register: none
+          rt_hw_pin_register: none
+          heap_init: none
+        marco:
+        - SOC_FAMILY_STM32
+        - SOC_SERIES_STM32L1
+        - USE_HAL_DRIVER
+        source_files:
+        - drivers\rtt
+  - sub_series_name: STM32L100xxA
+    chips:
+    - chip_name: STM32L100C6xxA
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00008000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00001000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '0'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L100C6xxA\link.lds
+          marco:
+          - STM32L100xBA
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l100xba.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l100xba.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L100R8xxA
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00010000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00002000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '0'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L100R8xxA\link.lds
+          marco:
+          - STM32L100xBA
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l100xba.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l100xba.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L100RBxxA
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00020000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00002800'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '0'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L100RBxxA\link.lds
+          marco:
+          - STM32L100xBA
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l100xba.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l100xba.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    ui:
+      uart:
+        default_value: UART1
+        prompt_message_en: select one uart as console output interface
+        prompt_message_zh: 选择一个串口作为控制台信息输出接口
+      tx_pin:
+        default_value: PA9
+        prompt_message_en: 'set the tx pin name of the console device interface, the
+          value should be with a format"P+[port name][pin number]",eg. PA9,PB6 '
+        prompt_message_zh: 设置控制台设备的数据发送引脚的名称, 名称应该具有以下格式“P+[端口名称][端口编号]”, 比如：PA9,
+          PB6
+      rx_pin:
+        default_value: PA10
+        prompt_message_en: 'set the rx pin name of the console device interface, the
+          value should be with a format"P+[port name][pin number]", eg. PA10, PB7 '
+        prompt_message_zh: 设置控制台设备的数据发送引脚的名称，名称应该具有以下格式“P+[端口名称][端口编号]”, 比如：PA9, PB6
+    docs:
+    - file: Documents\CD00240193.pdf
+      title: STM32L1xx Series Reference Manual
+    svd:
+      file: debug\svd\STM32L100xxAxx.svd
+    project_type:
+      bare_metal:
+        function_map:
+          clk_init: none
+          uart_init: none
+          putc: none
+          sysTick: none
+        marco:
+        - SOC_FAMILY_STM32
+        - SOC_SERIES_STM32L1
+        - USE_HAL_DRIVER
+        source_files:
+        - drivers\baremetal
+      rtt_nano:
+        function_map:
+          clk_init: none
+          uart_init: none
+          putc: none
+          getc: none
+          sysTick: none
+          heap_init: none
+        marco:
+        - SOC_FAMILY_STM32
+        - SOC_SERIES_STM32L1
+        - USE_HAL_DRIVER
+        source_files:
+        - drivers\nano
+      rtt:
+        function_map:
+          rt_hw_board_init;: none
+          rt_hw_serial_register: none
+          rt_hw_pin_register: none
+          heap_init: none
+        marco:
+        - SOC_FAMILY_STM32
+        - SOC_SERIES_STM32L1
+        - USE_HAL_DRIVER
+        source_files:
+        - drivers\rtt
+  - sub_series_name: STM32L151xxA
+    chips:
+    - chip_name: STM32L151C6xxA
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00008000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00004000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151C6xxA\link.lds
+          marco:
+          - STM32L151xBA
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xba.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xba.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151C8xxA
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00010000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151C8xxA\link.lds
+          marco:
+          - STM32L151xBA
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xba.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xba.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151CBxxA
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00020000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151CBxxA\link.lds
+          marco:
+          - STM32L151xBA
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xba.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xba.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151R6xxA
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00008000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00004000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151R6xxA\link.lds
+          marco:
+          - STM32L151xBA
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xba.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xba.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151R8xxA
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00010000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151R8xxA\link.lds
+          marco:
+          - STM32L151xBA
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xba.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xba.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151RBxxA
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00020000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151RBxxA\link.lds
+          marco:
+          - STM32L151xBA
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xba.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xba.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151RCxxA
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00040000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151RCxxA\link.lds
+          marco:
+          - STM32L151xCA
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xca.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xca.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151V8xxA
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00010000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151V8xxA\link.lds
+          marco:
+          - STM32L151xBA
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xba.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xba.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151VBxxA
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00020000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151VBxxA\link.lds
+          marco:
+          - STM32L151xBA
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xba.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xba.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L151VCxxA
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00040000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L151VCxxA\link.lds
+          marco:
+          - STM32L151xCA
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xca.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l151xca.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    ui:
+      uart:
+        default_value: UART1
+        prompt_message_en: select one uart as console output interface
+        prompt_message_zh: 选择一个串口作为控制台信息输出接口
+      tx_pin:
+        default_value: PA9
+        prompt_message_en: 'set the tx pin name of the console device interface, the
+          value should be with a format"P+[port name][pin number]",eg. PA9,PB6 '
+        prompt_message_zh: 设置控制台设备的数据发送引脚的名称, 名称应该具有以下格式“P+[端口名称][端口编号]”, 比如：PA9,
+          PB6
+      rx_pin:
+        default_value: PA10
+        prompt_message_en: 'set the rx pin name of the console device interface, the
+          value should be with a format"P+[port name][pin number]", eg. PA10, PB7 '
+        prompt_message_zh: 设置控制台设备的数据发送引脚的名称，名称应该具有以下格式“P+[端口名称][端口编号]”, 比如：PA9, PB6
+    docs:
+    - file: Documents\CD00240193.pdf
+      title: STM32L1xx Series Reference Manual
+    svd:
+      file: debug\svd\STM32L151xxAxx.svd
+    project_type:
+      bare_metal:
+        function_map:
+          clk_init: none
+          uart_init: none
+          putc: none
+          sysTick: none
+        marco:
+        - SOC_FAMILY_STM32
+        - SOC_SERIES_STM32L1
+        - USE_HAL_DRIVER
+        source_files:
+        - drivers\baremetal
+      rtt_nano:
+        function_map:
+          clk_init: none
+          uart_init: none
+          putc: none
+          getc: none
+          sysTick: none
+          heap_init: none
+        marco:
+        - SOC_FAMILY_STM32
+        - SOC_SERIES_STM32L1
+        - USE_HAL_DRIVER
+        source_files:
+        - drivers\nano
+      rtt:
+        function_map:
+          rt_hw_board_init;: none
+          rt_hw_serial_register: none
+          rt_hw_pin_register: none
+          heap_init: none
+        marco:
+        - SOC_FAMILY_STM32
+        - SOC_SERIES_STM32L1
+        - USE_HAL_DRIVER
+        source_files:
+        - drivers\rtt
+  - sub_series_name: STM32L152xxA
+    chips:
+    - chip_name: STM32L152C6xxA
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00008000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00004000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152C6xxA\link.lds
+          marco:
+          - STM32L152xBA
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xba.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xba.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L152C8xxA
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00010000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152C8xxA\link.lds
+          marco:
+          - STM32L152xBA
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xba.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xba.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L152CBxxA
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00020000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152CBxxA\link.lds
+          marco:
+          - STM32L152xBA
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xba.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xba.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L152R6xxA
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00008000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00004000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152R6xxA\link.lds
+          marco:
+          - STM32L152xBA
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xba.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xba.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L152R8xxA
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00010000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152R8xxA\link.lds
+          marco:
+          - STM32L152xBA
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xba.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xba.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L152RBxxA
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00020000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152RBxxA\link.lds
+          marco:
+          - STM32L152xBA
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xba.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xba.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L152RCxxA
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00040000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152RCxxA\link.lds
+          marco:
+          - STM32L152xCA
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xca.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xca.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L152V8xxA
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00010000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152V8xxA\link.lds
+          marco:
+          - STM32L152xBA
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xba.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xba.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L152VBxxA
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00020000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152VBxxA\link.lds
+          marco:
+          - STM32L152xBA
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xba.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xba.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L152VCxxA
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00040000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L152VCxxA\link.lds
+          marco:
+          - STM32L152xCA
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xca.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l152xca.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    ui:
+      uart:
+        default_value: UART1
+        prompt_message_en: select one uart as console output interface
+        prompt_message_zh: 选择一个串口作为控制台信息输出接口
+      tx_pin:
+        default_value: PA9
+        prompt_message_en: 'set the tx pin name of the console device interface, the
+          value should be with a format"P+[port name][pin number]",eg. PA9,PB6 '
+        prompt_message_zh: 设置控制台设备的数据发送引脚的名称, 名称应该具有以下格式“P+[端口名称][端口编号]”, 比如：PA9,
+          PB6
+      rx_pin:
+        default_value: PA10
+        prompt_message_en: 'set the rx pin name of the console device interface, the
+          value should be with a format"P+[port name][pin number]", eg. PA10, PB7 '
+        prompt_message_zh: 设置控制台设备的数据发送引脚的名称，名称应该具有以下格式“P+[端口名称][端口编号]”, 比如：PA9, PB6
+    docs:
+    - file: Documents\CD00240193.pdf
+      title: STM32L1xx Series Reference Manual
+    svd:
+      file: debug\svd\STM32L152xxAxx.svd
+    project_type:
+      bare_metal:
+        function_map:
+          clk_init: none
+          uart_init: none
+          putc: none
+          sysTick: none
+        marco:
+        - SOC_FAMILY_STM32
+        - SOC_SERIES_STM32L1
+        - USE_HAL_DRIVER
+        source_files:
+        - drivers\baremetal
+      rtt_nano:
+        function_map:
+          clk_init: none
+          uart_init: none
+          putc: none
+          getc: none
+          sysTick: none
+          heap_init: none
+        marco:
+        - SOC_FAMILY_STM32
+        - SOC_SERIES_STM32L1
+        - USE_HAL_DRIVER
+        source_files:
+        - drivers\nano
+      rtt:
+        function_map:
+          rt_hw_board_init;: none
+          rt_hw_serial_register: none
+          rt_hw_pin_register: none
+          heap_init: none
+        marco:
+        - SOC_FAMILY_STM32
+        - SOC_SERIES_STM32L1
+        - USE_HAL_DRIVER
+        source_files:
+        - drivers\rtt
+  - sub_series_name: STM32L162xxA
+    chips:
+    - chip_name: STM32L162RCxxA
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00040000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L162RCxxA\link.lds
+          marco:
+          - STM32L162xCA
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l162xca.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l162xca.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    - chip_name: STM32L162VCxxA
+      peripheral: {}
+      memory:
+      - id: IROM1
+        start: '0x08000000'
+        size: '0x00040000'
+        default: '1'
+      - id: IRAM1
+        start: '0x20000000'
+        size: '0x00008000'
+        init: '0'
+        default: '1'
+      cpu_info:
+        max_clock: '32000000'
+        fpu: '0'
+        mpu: '1'
+        endian: Little-endian
+      compiler:
+        gcc:
+          entry_point: entry
+          link_script: linkscripts\STM32L162VCxxA\link.lds
+          marco:
+          - STM32L162xCA
+          files:
+          - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l162xca.h
+          - libraries\CMSIS\Lib\GCC
+          - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc\startup_stm32l162xca.S
+        armcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+        iarcc:
+          entry_point: none
+          link_script: none
+          marco: []
+          files: []
+    ui:
+      uart:
+        default_value: UART1
+        prompt_message_en: select one uart as console output interface
+        prompt_message_zh: 选择一个串口作为控制台信息输出接口
+      tx_pin:
+        default_value: PA9
+        prompt_message_en: 'set the tx pin name of the console device interface, the
+          value should be with a format"P+[port name][pin number]",eg. PA9,PB6 '
+        prompt_message_zh: 设置控制台设备的数据发送引脚的名称, 名称应该具有以下格式“P+[端口名称][端口编号]”, 比如：PA9,
+          PB6
+      rx_pin:
+        default_value: PA10
+        prompt_message_en: 'set the rx pin name of the console device interface, the
+          value should be with a format"P+[port name][pin number]", eg. PA10, PB7 '
+        prompt_message_zh: 设置控制台设备的数据发送引脚的名称，名称应该具有以下格式“P+[端口名称][端口编号]”, 比如：PA9, PB6
+    docs:
+    - file: Documents\CD00240193.pdf
+      title: STM32L1xx Series Reference Manual
+    svd:
+      file: debug\svd\STM32L162xxAxx.svd
+    project_type:
+      bare_metal:
+        function_map:
+          clk_init: none
+          uart_init: none
+          putc: none
+          sysTick: none
+        marco:
+        - SOC_FAMILY_STM32
+        - SOC_SERIES_STM32L1
+        - USE_HAL_DRIVER
+        source_files:
+        - drivers\baremetal
+      rtt_nano:
+        function_map:
+          clk_init: none
+          uart_init: none
+          putc: none
+          getc: none
+          sysTick: none
+          heap_init: none
+        marco:
+        - SOC_FAMILY_STM32
+        - SOC_SERIES_STM32L1
+        - USE_HAL_DRIVER
+        source_files:
+        - drivers\nano
+      rtt:
+        function_map:
+          rt_hw_board_init;: none
+          rt_hw_serial_register: none
+          rt_hw_pin_register: none
+          heap_init: none
+        marco:
+        - SOC_FAMILY_STM32
+        - SOC_SERIES_STM32L1
+        - USE_HAL_DRIVER
+        source_files:
+        - drivers\rtt
+  docs:
+  - file: Documents\dui0552a_cortex_m3_dgug.pdf
+    title: Cortex-M3 Generic User Guide
+  source_files:
+    file:
+    - libraries\STM32L1xx_HAL_Driver
+    - libraries\CMSIS\Include
+    - libraries\CMSIS\RTOS
+    - libraries\CMSIS\Device\ST\STM32L1xx\Include
+    - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\system_stm32L1xx.c
+  cpu_info:
+    core: Cortex-M3
+  ui:
+    uart:
+      default_value: UART1
+      prompt_message_en: select one uart as console output interface
+      prompt_message_zh: 选择一个串口作为控制台信息输出接口
+    tx_pin:
+      default_value: PA9
+      prompt_message_en: 'set the tx pin name of the console device interface, the
+        value should be with a format"P+[port name][pin number]",eg. PA9,PB6 '
+      prompt_message_zh: 设置控制台设备的数据发送引脚的名称, 名称应该具有以下格式“P+[端口名称][端口编号]”, 比如：PA9, PB6
+    rx_pin:
+      default_value: PA10
+      prompt_message_en: 'set the rx pin name of the console device interface, the
+        value should be with a format"P+[port name][pin number]", eg. PA10, PB7 '
+      prompt_message_zh: 设置控制台设备的数据发送引脚的名称，名称应该具有以下格式“P+[端口名称][端口编号]”, 比如：PA9, PB6
