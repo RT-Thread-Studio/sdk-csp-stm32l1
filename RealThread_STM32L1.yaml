@@ -3515,7 +3515,7 @@ series:
     - libraries\CMSIS\Include
     - libraries\CMSIS\RTOS
     - libraries\CMSIS\Device\ST\STM32L1xx\Include
-    - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\system_stm32L1xx.c
+    - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\system_stm32l1xx.c
   cpu_info:
     core: Cortex-M3
   ui:
