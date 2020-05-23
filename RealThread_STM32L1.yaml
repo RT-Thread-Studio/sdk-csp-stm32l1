@@ -10,7 +10,7 @@ series:
   description: |-
     STMicroelectronics' STM32L1 series uses ultra-low-leakage process technology with a autonomous dynamic voltage scaling and 5 low-power modes offering unprecedented platform flexibility to fit any application.
     Typical applications include Medical and handheld equipment, Application control and user interface, PC peripherals, gaming, GPS and sport equipment, Alarm systems, wired and wireless sensors, Video intercom, Utility metering
-  series_name: RealThread_STM32L1xx
+  series_name: STM32L1
   peripheral: {}
   sub_series:
   - sub_series_name: STM32L100
