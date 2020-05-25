@@ -2,7 +2,7 @@
 vendor: RealThread
 dvendor: STMicroelectronics
 name: STM32L1
-version: 0.1.2
+version: 0.1.7
 yaml_version: 1
 type: Chip_Support_Packages
 family_name: STM32
@@ -3514,7 +3514,8 @@ series:
     - libraries\STM32L1xx_HAL_Driver
     - libraries\CMSIS\Include
     - libraries\CMSIS\RTOS
-    - libraries\CMSIS\Device\ST\STM32L1xx\Include
+    - libraries\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h
+    - libraries\CMSIS\Device\ST\STM32L1xx\Include\system_stm32l1xx.h
     - libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\system_stm32l1xx.c
   cpu_info:
     core: Cortex-M3
