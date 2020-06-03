@@ -35,7 +35,6 @@ extern "C" {
 #define LPUART1_DMA_CONFIG                                          \
     {                                                               \
         .Instance = LPUART1_RX_DMA_INSTANCE,                        \
-        .request  = LPUART1_RX_DMA_REQUEST,                         \
         .dma_rcc  = LPUART1_RX_DMA_RCC,                             \
         .dma_irq  = LPUART1_RX_DMA_IRQ,                             \
     }
@@ -60,7 +59,6 @@ extern "C" {
 #define UART1_DMA_RX_CONFIG                                         \
     {                                                               \
         .Instance = UART1_RX_DMA_INSTANCE,                          \
-        .request  = UART1_RX_DMA_REQUEST,                           \
         .dma_rcc = UART1_RX_DMA_RCC,                                \
         .dma_irq = UART1_RX_DMA_IRQ,                                \
     }
@@ -72,7 +70,6 @@ extern "C" {
 #define UART1_DMA_TX_CONFIG                                         \
     {                                                               \
         .Instance = UART1_TX_DMA_INSTANCE,                          \
-        .request  = UART1_TX_DMA_REQUEST,                           \
         .dma_rcc = UART1_TX_DMA_RCC,                                \
         .dma_irq = UART1_TX_DMA_IRQ,                                \
     }
@@ -97,7 +94,6 @@ extern "C" {
 #define UART2_DMA_RX_CONFIG                                         \
     {                                                               \
         .Instance = UART2_RX_DMA_INSTANCE,                          \
-        .request  = UART2_RX_DMA_REQUEST,                           \
         .dma_rcc = UART2_RX_DMA_RCC,                                \
         .dma_irq = UART2_RX_DMA_IRQ,                                \
     }
@@ -109,7 +105,6 @@ extern "C" {
 #define UART2_DMA_TX_CONFIG                                         \
     {                                                               \
         .Instance = UART2_TX_DMA_INSTANCE,                          \
-        .request  = UART2_TX_DMA_REQUEST,                           \
         .dma_rcc = UART2_TX_DMA_RCC,                                \
         .dma_irq = UART2_TX_DMA_IRQ,                                \
     }
@@ -134,7 +129,6 @@ extern "C" {
 #define UART3_DMA_RX_CONFIG                                         \
     {                                                               \
         .Instance = UART3_RX_DMA_INSTANCE,                          \
-        .request  = UART3_RX_DMA_REQUEST,                           \
         .dma_rcc = UART3_RX_DMA_RCC,                                \
         .dma_irq = UART3_RX_DMA_IRQ,                                \
     }
@@ -146,7 +140,6 @@ extern "C" {
 #define UART3_DMA_TX_CONFIG                                         \
     {                                                               \
         .Instance = UART3_TX_DMA_INSTANCE,                          \
-        .request  = UART3_TX_DMA_REQUEST,                           \
         .dma_rcc = UART3_TX_DMA_RCC,                                \
         .dma_irq = UART3_TX_DMA_IRQ,                                \
     }
@@ -171,7 +164,6 @@ extern "C" {
 #define UART4_DMA_RX_CONFIG                                         \
     {                                                               \
         .Instance = UART4_RX_DMA_INSTANCE,                          \
-        .request  = UART4_RX_DMA_REQUEST,                           \
         .dma_rcc = UART4_RX_DMA_RCC,                                \
         .dma_irq = UART4_RX_DMA_IRQ,                                \
     }
@@ -183,7 +175,6 @@ extern "C" {
 #define UART4_DMA_TX_CONFIG                                         \
     {                                                               \
         .Instance = UART4_TX_DMA_INSTANCE,                          \
-        .request  = UART4_TX_DMA_REQUEST,                           \
         .dma_rcc = UART4_TX_DMA_RCC,                                \
         .dma_irq = UART4_TX_DMA_IRQ,                                \
     }
@@ -208,7 +199,6 @@ extern "C" {
 #define UART5_DMA_RX_CONFIG                                         \
     {                                                               \
         .Instance = UART5_RX_DMA_INSTANCE,                          \
-        .request  = UART5_RX_DMA_REQUEST,                           \
         .dma_rcc = UART5_RX_DMA_RCC,                                \
         .dma_irq = UART5_RX_DMA_IRQ,                                \
     }
@@ -220,7 +210,6 @@ extern "C" {
 #define UART5_DMA_TX_CONFIG                                         \
     {                                                               \
         .Instance = UART5_TX_DMA_INSTANCE,                          \
-        .request  = UART5_TX_DMA_REQUEST,                           \
         .dma_rcc = UART5_TX_DMA_RCC,                                \
         .dma_irq = UART5_TX_DMA_IRQ,                                \
     }
